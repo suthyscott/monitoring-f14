@@ -14,7 +14,10 @@ let students = []
 const app = express()
 app.use(express.json())
 
-
+app.get('/css', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/styles.css'))
+    rollbar.info('html file served successfully.')
+})
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
